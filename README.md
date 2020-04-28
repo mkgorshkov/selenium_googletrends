@@ -6,6 +6,8 @@ Given the google trends search and the desired directory, this ugly program will
 2) Set the desired directory
 3) Change the keyword if necessary
 
+**Summary of the  problem and solution here : https://devopsdebug.com/download-files-with-selenium-and-chromedriver**
+
 **License**
 
 This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
