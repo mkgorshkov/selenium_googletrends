@@ -1,4 +1,5 @@
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -18,13 +19,17 @@ public class GetTrendsCSV {
         options.setExperimentalOption("prefs", prefs);
 //        caps.setCapability(ChromeOptions.CAPABILITY, options);
 
-        System.setProperty("webdriver.chrome.driver", "/Users/maximgorshkov/IdeaProjects/selenium_googletrends/src/main/resources/chromedriver-mac");
+        System.setProperty("webdriver.chrome.driver", "/home/indiemax/Code/selenium_googletrends/src/main/resources/chromedriver");
 
 
         WebDriver Driver = new ChromeDriver(options);
-        Driver.navigate().to("https://trends.google.com/trends/explore?q=ethereum");
+        Driver.navigate().to("https://trends.google.com/trends/");
 
-        WebElement getCSV = Driver.findElement(By.cssSelector("body > div.trends-wrapper > div:nth-child(2) > div > md-content > div > div > div:nth-child(1) > trends-widget > ng-include > widget > div > div > div > widget-actions > div > button.widget-actions-item.export"));
+        WebElement searchbox = Driver.findElement(By.xpath("/html/body/div[2]/div[2]/div/ng-include/div/div[2]/autocomplete/md-autocomplete/md-autocomplete-wrap/input"));
+        searchbox.sendKeys("ethereum");
+        searchbox.sendKeys(Keys.ENTER);
+
+        WebElement getCSV = Driver.findElement(By.xpath("/html/body/div[2]/div[2]/div/md-content/div/div/div[1]/trends-widget/ng-include/widget/div/div/div/widget-actions/div/button[1]/i"));
         getCSV.click();
 
         Driver.close();
